@@ -1,0 +1,23 @@
+version: "2"
+services:
+  dump1090:
+    image: jraviles/dump1090@sha256:d9d332d398885b3ba8f9ee808ab28495a0bd8407ec5a50a458d6e53d14d61a72
+    devices:
+      - "/dev/bus/usb:/dev/bus/usb"
+    cap_add:
+      - SYS_NICE
+    expose:
+      - "30005"
+  fr24feed:
+    image: "mikenye/fr24feed:latest_armhf"
+    environment:
+      - FR24KEY
+      - BEASTHOST=dump1090
+      - TZ
+      - MLAT
+  pfclient:
+    build:
+      context: .
+      dockerfile: pfclient.dockerfile
+    ports:
+      - "30053:30053"
