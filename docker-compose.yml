@@ -21,3 +21,8 @@ services:
       dockerfile: pfclient.dockerfile
     ports:
       - "30053:30053"
+  piaware:
+    build: https://github.com/wnagele/docker-piaware.git
+    enviroment:
+      - BEAST_PORT_30005_TCP_ADDR=dump1090
+      - FEEDER_ID
