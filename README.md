@@ -8,4 +8,4 @@ When using balenaCloud you need to define environment variables for each device
 | FR24KEY | xxxxxxxxxx |
 | MLAT | YES |
 | TZ | Europe/London |
-
+| FEEDER_ID (PiAware Feeder ID) | 00000000-0000-0000-0000-000000000abc |
